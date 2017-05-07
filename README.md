@@ -9,27 +9,27 @@ There are 3 roles:
 
 Functionality (you can choose some or all):
 * Admin
- * An admin will have a login into BTMS.
- * He can create username and password(along with other details) for a new engineer.
- * He can assign an engineer as a support engineer or a product engineer.
- * He can delete a engineer from database.
+  * An admin will have a login into BTMS.
+  * He can create username and password(along with other details) for a new engineer.
+  * He can assign an engineer as a support engineer or a product engineer.
+  * He can delete a engineer from database.
  
 * Product Engineer
- * A product Enginner will login into BTMS using his credentials.
- * He can see list of bugs assigned to him.Filter them based on due dates,priority etc.
- * He can update a bug assigned to him i.e mark it resolved,add a comment.
+  * A product Enginner will login into BTMS using his credentials.
+  * He can see list of bugs assigned to him.Filter them based on due dates,priority etc.
+  * He can update a bug assigned to him i.e mark it resolved,add a comment.
  
 * Support Engineer
- * A support Enginner will login into BTMS using his credentials.
- * He can see the lists of bug he has created and their status(resolved or not)
- * He can create a new bug with some details like Bug Name,Description,Due Date,etc.
- * He can assign/reassign his bug to any of the product engineer.
+  * A support Enginner will login into BTMS using his credentials.
+  * He can see the lists of bug he has created and their status(resolved or not)
+  * He can create a new bug with some details like Bug Name,Description,Due Date,etc.
+  * He can assign/reassign his bug to any of the product engineer.
  
 * Common:
- * Login
- * Logout
- * Creating/Updating an issue
- * Showing List of Issues - This module allows users to see list of issues created by him or assigned to him. There can be a filter here. Also there can be a carousel here containing two or three items like one having data showing monthwise issue resolved, other having data showing pending issues. Feel free to show  any type of analytics(graphs,tables) here.
+  * Login
+  * Logout
+  * Creating/Updating an issue
+  * Showing List of Issues - This module allows users to see list of issues created by him or assigned to him. There can be a filter here. Also there can be a carousel here containing two or three items like one having data showing monthwise issue resolved, other having data showing pending issues. Feel free to show  any type of analytics(graphs,tables) here.
  
 Task and Implementation:
  * Your task is to create an implementation of the Bug Ticket Management System. You are free to choose the framework of your choice. We would prefer EmberJS, Angular or React
