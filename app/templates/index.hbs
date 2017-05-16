@@ -1,0 +1,16 @@
+{{outlet}}
+<div class="ui center aligned segment">
+  {{#if session.isAuthenticated}}
+    {{#if session.currentUser}}
+      <div class="h2 header">
+        Welcome {{session.currentUser.name}}! Your current role is: {{session.currentUser.role}}
+      </div>
+    {{/if}}
+  {{else}}
+    <h2>Welcome to Artoo Bug Ticket Management System (BTMS)</h2>
+    {{#link-to 'login' class="ui button" }}Please Login{{/link-to}}
+    <div class="ui hidden divider">
+    </div>
+  {{/if}}
+</div>
+<small class="subtle">BTMS Version: {{app-version}}</small>

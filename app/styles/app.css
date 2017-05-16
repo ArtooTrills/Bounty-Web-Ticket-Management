@@ -1,0 +1,10 @@
+body {
+  background: wheat;
+}
+
+/* Utils */
+.subtle { opacity: 0.5; }
+
+#main_container {
+  background: whitesmoke;
+}

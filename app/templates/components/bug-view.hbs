@@ -1,0 +1,60 @@
+<form class="ui form">
+
+  <div class="field">
+    <label>The Issue</label>
+    <div class="ui fluid input">
+      {{input class="input" value=bug.title placeholder="What's the issue?"}}
+    </div>
+  </div>
+  <div class="field">
+    <label>Detailed Description</label> {{textarea value=bug.description placeholder="Give more details" class="ui fluid input"}}
+  </div>
+  <div class="field">
+    <label>Priority</label>
+    {{#ui-dropdown class="selection" selected=bug.priority onChange=(action (mut bug.priority))}}
+      <div class="default text">Select Priority</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item" data-value="1">
+          Low
+        </div>
+        <div class="item" data-value="2">
+          Medium
+        </div>
+        <div class="item" data-value="3">
+          High
+        </div>
+      </div>
+    {{/ui-dropdown}}
+  </div>
+  <div class="field">
+    <label>Bug Owner</label>
+    {{#ui-dropdown class="selection" selectOnKeydown=false selected=bug.owner onChange=(action 'setOwner') as |execute mapper|}}
+      <div class="default text">Select Owner</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        {{#each filteredOwners as |owner|}}
+          <div class="item" data-value= {{map-value mapper owner}}>
+            {{owner.name}} <br/><small class="subtle">{{owner.role}}</small>
+          </div>
+        {{/each}}
+      </div>
+    {{/ui-dropdown}}
+  </div>
+  <div class="field">
+    <label>Bug Created By</label>
+    <div class="ui fluid label">
+      {{bug.creator.name}}
+    </div>
+  </div>
+  {{#if bug.isNew}}
+    <div class="ui green submit button" {{action "createBug" bug}}>Create Bug</div>
+  {{else}}
+    {{#if bug.hasDirtyAttributes}}
+      <div class="ui green submit button" {{action "updateBug" bug}}>Update Bug</div>
+    {{/if}}
+  {{/if}}
+  <div class="ui default button" {{action "cancel"}}>
+    {{#if bug.isNew}}Cancel{{else}}Done{{/if}}
+  </div>
+</form>
