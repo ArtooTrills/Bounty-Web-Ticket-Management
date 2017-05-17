@@ -3,15 +3,15 @@
   <div class="field">
     <label>The Issue</label>
     <div class="ui fluid input">
-      {{input class="input" value=bug.title placeholder="What's the issue?"}}
+      {{input type="text" class="input" id="bv_bug_title" value=bug.title placeholder="What's the issue?"}}
     </div>
   </div>
   <div class="field">
-    <label>Detailed Description</label> {{textarea value=bug.description placeholder="Give more details" class="ui fluid input"}}
+    <label>Detailed Description</label> {{textarea value=bug.description placeholder="Give more details" class="ui fluid description input"}}
   </div>
   <div class="field">
     <label>Priority</label>
-    {{#ui-dropdown class="selection" selected=bug.priority onChange=(action (mut bug.priority))}}
+    {{#ui-dropdown class="selection priority" selected=bug.priority onChange=(action (mut bug.priority))}}
       <div class="default text">Select Priority</div>
       <i class="dropdown icon"></i>
       <div class="menu">
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <label>Bug Owner</label>
-    {{#ui-dropdown class="selection" selectOnKeydown=false selected=bug.owner onChange=(action 'setOwner') as |execute mapper|}}
+    {{#ui-dropdown class="selection owner" selectOnKeydown=false selected=bug.owner onChange=(action 'setOwner') as |execute mapper|}}
       <div class="default text">Select Owner</div>
       <i class="dropdown icon"></i>
       <div class="menu">
@@ -47,14 +47,14 @@
       {{bug.creator.name}}
     </div>
   </div>
-  {{#if bug.isNew}}
-    <div class="ui green submit button" {{action "createBug" bug}}>Create Bug</div>
-  {{else}}
-    {{#if bug.hasDirtyAttributes}}
+  {{#if bug.hasDirtyAttributes}}
+    {{#if bug.isNew}}
+      <div class="ui green submit button" {{action "createBug" bug}}>Create Bug</div>
+    {{else}}
       <div class="ui green submit button" {{action "updateBug" bug}}>Update Bug</div>
     {{/if}}
   {{/if}}
-  <div class="ui default button" {{action "cancel"}}>
+  <div class="ui default cancel button" {{action "cancel"}}>
     {{#if bug.isNew}}Cancel{{else}}Done{{/if}}
   </div>
 </form>
