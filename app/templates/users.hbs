@@ -1,0 +1,35 @@
+{{#if (can "create user")}}
+  Hey Admin! You can create users. But, unfortunately since this implementation is a mockup, the users you will create will be removed on page reload! <br/>
+  Currently availble users and their roles are listed below.
+  <div class="ui segments">
+    {{#each model as |user|}}
+      <div class="ui segment">
+        <div class="ui middle aligned grid">
+          <div class="ui two wide column">
+            <div class="sprite-{{user.role}} animated bounceIn">
+
+            </div>
+          </div>
+          <div class="ui twelve wide column">
+            <strong>{{user.name}}</strong><br/> Role: {{user.role}} | Email: {{user.email}}
+          </div>
+        </div>
+      </div>
+    {{/each}}
+    <div class="ui brown inverted segment">
+      <div class="ui middle aligned grid">
+        <div class="ui two wide column">
+          <div class="sprite-noavatar">
+          </div>
+        </div>
+        <div class="ui twelve wide column">
+          <div class="ui inverted button">Create A New User</div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{else}}
+  Sorry! You can't create or view users. You need to be an admin.
+{{/if}}
+<!-- {{#if session.isAuthenticated}} -->
+<!-- {{/if}} -->

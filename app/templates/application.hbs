@@ -1,0 +1,40 @@
+<div class="ui container" id="main_container">
+  <div class="ui middle aligned celled stackable grid">
+    <div class="ui row">
+      <div class="ui column">
+        <img src="/assets/images/artoo_logo.png" />
+      </div>
+      <div class="ui column">
+        BTMS
+      </div>
+    </div>
+    <div class="ui row">
+      <div class="ui sixteen wide column">
+        <div class="ui attached pointing menu">
+          {{#link-to "index" class="item" }}
+            <i class="home icon"></i>Home
+          {{/link-to}}
+          {{#link-to "bugs" class="item" }}
+            <i class="bug icon"></i> Bugs
+          {{/link-to}}
+          {{#link-to "users" class="item" }}
+            <i class="user icon"></i> Users
+          {{/link-to}}
+          {{#if session.isAuthenticated}}
+            {{#if session.currentUser}}
+              <div class="item">
+                Logged in as {{session.currentUser.name}} [{{session.currentUser.role}}]
+              </div>
+            {{/if}}
+            <a class="item" {{action 'invalidateSession'}}>Logout</a>
+          {{else}}
+            {{#link-to 'login' class="item" }}Login{{/link-to}}
+          {{/if}}
+        </div>
+      </div>
+      <div class="ui sixteen wide column">
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</div>

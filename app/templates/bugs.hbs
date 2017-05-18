@@ -1,0 +1,19 @@
+{{#if (can "create bug")}}
+<div class="ui fluid container">
+  <h1 class="ui header">{{model.bugs.length}} Bugs
+    {{#link-to "bugs.new" class="ui primary compat right floated button"}}New Bug{{/link-to}}
+  </h1>
+  <div class="ui segment">
+    <div class="ui grid">
+      <div class="ui ten wide column">
+        {{bug-list bugs=model currentUser=session.currentUser onBugRemoval="onBugRemoval"}}
+      </div>
+      <div class="ui six wide grey column">
+        {{outlet}}
+      </div>
+    </div>
+  </div>
+</div>
+{{else}}
+  Only a Product or Support Engineer can create a bug.
+{{/if}}
