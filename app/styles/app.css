@@ -1,10 +1,76 @@
+@import "sprites.css";
+@import "animations.css";
 body {
   background: wheat;
 }
 
+
 /* Utils */
-.subtle { opacity: 0.5; }
+
+.subtle {
+  opacity: 0.5;
+}
 
 #main_container {
   background: whitesmoke;
+}
+
+
+/* Dashboard */
+
+#dashboard {}
+
+#dashboard {
+  margin: 64px auto;
+}
+
+#dashboard .ui.cards .card .content {
+  border-top: 0
+}
+
+#dashboard svg.pie.chart {
+  margin: 1em auto;
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  background: #ddd;
+  border-radius: 50%;
+  display: block;
+}
+
+#dashboard svg.chart circle {
+  fill: #ddd;
+  stroke: #0074d9;
+  stroke-width: 50;
+  stroke-dasharray: 0 158;
+  -webkit-transition: stroke-dasharray .3s ease;
+  transition: stroke-dasharray .3s ease;
+}
+
+#dashboard svg.line.chart {
+  margin: auto;
+  background: rgba(238, 238, 238, 0.5);
+  display: block;
+  padding: 1em 0;
+  border: 1px solid #ddd;
+}
+
+.card .role-avatar {
+  margin: -64px auto 10px auto;
+}
+
+.hexagon {
+  box-sizing: border-box;
+  color: white;
+  width: 262px;
+  height: 292px;
+  padding: 90px 40px;
+  margin: 50px auto 0;
+  background: hsla(0, 0%, 100%, .25);
+  text-align: center;
+  position: relative;
+  z-index: 900;
+  -webkit-mask-image: url('/assets/images/hexagon.svg');
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  -webkit-mask-size: 262px 292px;
 }
