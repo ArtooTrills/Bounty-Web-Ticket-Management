@@ -1,0 +1,50 @@
+
+block body
+	.md-inline-form(ng-controller='UserController as userCtrl' layout="column")
+		.container
+			.jumbotron.text-center
+				h1
+					| ETS - Efficient
+					i
+						b.colorBold
+							|IT 
+					| Ticket System - 
+					span.label.label-info {{ userCtrl.users.length }}
+
+			// Product Eng User LIST
+			#users-list.row
+				.col-sm-4.col-sm-offset-4
+					.checkbox(ng-repeat='user in userCtrl.users')
+						label
+							input(type='checkbox', ng-click='userCtrl.deleteUser(user._id)')
+							|  {{ user.username }}
+
+					p.text-center(ng-show='userCtrl.isProcessing')
+						span.fa.fa-spinner.fa-spin.fa-3x
+						
+			// Support Eng User LIST
+			.jumbotron.text-center
+				h1
+					| ETS - Efficient
+					i
+						b.colorBold
+							|IT 
+					| Users System - 
+					span.label.label-info {{ userCtrl.users.length }}
+			#users-list.row
+				.col-sm-4.col-sm-offset-4
+					.checkbox(ng-repeat='user in userCtrl.users')
+						label
+							input(type='checkbox', ng-click='userCtrl.deleteUser(user._id)')
+							|  {{ user.username }}
+
+					p.text-center(ng-show='userCtrl.isProcessing')
+						span.fa.fa-spinner.fa-spin.fa-3x
+
+			// FORM TO CREATE TODOS
+			#users-form.row
+				.col-sm-8.col-sm-offset-2.text-center
+					form(name="userForm")
+						.form-group
+
+						button.btn.btn-primary.btn-lg(type='submit', ng-click='userCtrl.createUser(user)') Add

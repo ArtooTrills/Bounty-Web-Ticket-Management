@@ -1,0 +1,83 @@
+extend shared/layout
+head
+script(type='text/javascript', src='/js/app/register/regController.js')
+script(type='text/javascript', src='/js/app/register/regService.js')
+block body
+	style.
+		md-card {
+			max-width: 650px;
+		}
+
+	#message(layout="row")
+
+	.md-inline-form(ng-controller="RegistrationController as registrationCtrl" layout="column")
+
+		form(name="register" ng-submit="registrationCtrl.submit(user)")
+			.input-container
+				.heading.md-primary(style="color: red;align:right") Logged in as Admin
+			
+				.heading.md-primary(style="margin-top: 20px") User details
+
+				md-input-container.md-block
+					label First name
+					input(ng-model="user.firstName" name="firstName"
+						ng-disabled="registrationCtrl.isProcessing" tabindex="1" focus-me="true" required)
+					div(ng-messages="register.firstName.$error")
+						div(ng-message="required") First name required
+
+				md-input-container.md-block
+					label Last Name
+					input(ng-model="user.lastName"
+						name="lastName"
+						ng-disabled="registrationCtrl.isProcessing" tabindex="2" required)
+					div(ng-messages="register.lastName.$error")
+						div(ng-message="required") Last name required
+
+				md-input-container.md-block
+					label Email
+					input(ng-model="user.email"
+						name="email"
+						type="email"
+						minlength="5" ng-pattern="/^.+@.+\..+$/"
+						style="text-transform: lowercase;"
+						ng-disabled="registrationCtrl.isProcessing" tabindex="3" required)
+					div(ng-messages="register.email.$error")
+						div(ng-message="required") Email required
+						div(ng-message="pattern") Not a valid email address
+
+				.heading.md-primary Login Credentials
+
+				md-input-container.md-block
+					label Login Name
+					input(ng-model="user.username" name="username" style="text-transform: lowercase;" ng-disabled="registrationCtrl.isProcessing" tabindex="4" required)
+					div(ng-messages="register.username.$error")
+						div(ng-message="required") Username required
+
+				md-input-container.md-block
+					label Password
+					input#password1(ng-model="user.password1" type="password" name="password1" ng-disabled="registrationCtrl.isProcessing" tabindex="5" required)
+					div(ng-show="isMatched") Passwords match
+					div(ng-messages="register.password1.$error")
+						div(ng-message="required") Password required
+						div(ng-message="confirmmatch") Passwords do not match
+
+				md-input-container.md-block
+					label Verify Password
+					input#password2(ng-model="user.password2"
+						type="password" name="password2"
+						pw-check="password1"
+						pw-check-matched="registrationCtrl.isMatched"
+						ng-disabled="registrationCtrl.isProcessing" tabindex="6" required)
+
+					div(ng-show="isMatched") Passwords match
+					div(ng-messages="register.password2.$error")
+						div(ng-message="required") Password verification required
+						div(ng-message="confirmmatch") Passwords do not match
+
+				md-input-container.md-block(flex-gt-sm="")
+					label User Role
+					md-select(ng-model="user.role" tabindex="7")
+						md-option(ng-repeat="role in registrationCtrl.roles" ng-value="{{ role.id }}")
+							| {{ role.name }}
+
+				md-button.md-primary.md-raised(ng-disabled="registrationCtrl.isProcessing" type="submit" style="margin-top: 50px") Register
