@@ -150,3 +150,19 @@ Task and Implementation:
 	-Exception handling/errorHandler of angular
 	-Session management : Authorization header
 
+	
+NEW Implementation:
+-------------------------
+
+Details of Implementation/flow :
+------------------------------------
+	1. Implementing EDIT flow of a ticket :
+		
+			- Support Engineer can edit a Ticket
+			- update  ticket name/details/due date etc
+			- Assign/Re-assign a new Product engineer to the ticket
+	
+	2. Assigning a ticket to a particular Product Engineer only.
+	 
+		- Support Engineer can assign a ticket to a particular Product Engineer only.
+		- only the tickets which are assigned to product eng. can be seen in his dashboard

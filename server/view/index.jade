@@ -22,6 +22,7 @@ block body
 								th Status
 								th Description
 								th Due Date
+								th #Edit
 						tbody
 							each ticket in ticketList
 												tr
@@ -32,7 +33,7 @@ block body
 														td= ticket.status
 														td= ticket.details
 														td= ticket.dateofoccurance
-					
+														td  <button ng-click='mainCtrl.getCurrentTicketById("#{ticket.id}")'> update </button>
 					br
 					br
 					p.text-center(ng-show='logCtrl.isProcessing')
@@ -70,6 +71,14 @@ block body
 				.col-sm-8.col-sm-offset-2.text-center
 					form(name="ticketForm")
 						.form-group
+							label Assign a Product Engineer : 
+							<select ng-model="ticket.assignedTo">
+							<option value="all">all</option>
+							<option ng-repeat="user in mainCtrl.users" ng-value="user._id">{{ user.firstname }}</option>
+							</select>
+							input.form-control.input-lg.text-center(rows="2" cols="20" type='text',hidden=true, placeholder='Problem summary', ng-model='ticket._id')
+							br
+							br
 							input.form-control.input-lg.text-center(rows="2" cols="20" type='text', placeholder='Problem summary', ng-model='ticket.summary')
 							br
 							br
@@ -96,6 +105,8 @@ block body
 							br
 							br
 						button.btn.btn-primary.btn-lg(type='submit', ng-click='mainCtrl.createTicket(ticket)') Create Ticket
+						button.btn.btn-primary.btn-lg(type='submit', ng-click='mainCtrl.updateTicket(ticket)') Update Ticket
+		
 		else if(openedBy!="2")
 			#ticket-form.row
 				.col-sm-8.col-sm-offset-2.text-center

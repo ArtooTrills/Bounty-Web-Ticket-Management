@@ -14,7 +14,8 @@ function modifyUserInfo(user) {
       email: user.email.toLowerCase(),
       username: user.username,
       fullname: capitalizeFirstLetter(user.firstname) + ' ' + capitalizeFirstLetter(user.lastname),
-      role: user.role || 1
+      role: user.role || 1,
+	  _id: user._id
     };
 
   } else {
@@ -42,7 +43,9 @@ module.exports = {
   
   getUsers: function(req, res) {
     // use mongoose to get all todos in the database
-    User.find(function(err, users) {
+    User.find({
+	role:1  
+  },function(err, users) {
 
     // if there is an error retrieving, send the error. nothing after res.send(err) will execute
     if (err) {
@@ -90,7 +93,9 @@ module.exports = {
     });
 	
 	app.post('/api/getUsers', function(req, res, next) {
-      User.find(function(err, users) {
+      User.find({
+	role:1  
+  },function(err, users) {
 
     // if there is an error retrieving, send the error. nothing after res.send(err) will execute
 		if (err) {

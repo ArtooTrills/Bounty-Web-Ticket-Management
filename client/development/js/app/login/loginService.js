@@ -19,7 +19,11 @@
 	  getUserRoles: function() {
 				return $http.post('/api/getUserRoles');
 		
-	  }	  
+	  },
+	 getUsers: function() {
+				return $http.post('/api/getUsers');
+		
+	  }	 	  
 	}
   }];
 

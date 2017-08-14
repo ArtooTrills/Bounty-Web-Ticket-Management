@@ -37,10 +37,14 @@
         // if successful creation, call our get function to get all the new todos
 		.success(function(response) {
           self.isProcessing = false;
-		 sessionStorage.openedBy=user.role;
+		  sessionStorage.openedBy=user.role;
+		  sessionStorage.assignee=response.data.user._id;
           alert(response.data.msg);
-          if (typeof response.data.redirect == 'string')
+          if (typeof response.data.redirect == 'string' && sessionStorage.openedBy==2)
             $window.location = response.data.redirect;
+		 if (typeof response.data.redirect == 'string' && sessionStorage.openedBy==1)
+            $window.location ='./api/ticket/'+response.data.user._id
+			
         })
 		.error(function(response) {
           self.isProcessing = false;

@@ -7,7 +7,8 @@ var authentication = require(app_settings.authentication);
 module.exports = function(router, passport) {
   authentication.routes(router, passport);
 
-  router.get('/api/ticket/:opened_by', authentication.check, Ticket.get);
+  router.get('/api/ticket', authentication.check, Ticket.get);
+  router.get('/api/ticket/:ticket_id', authentication.check, Ticket.get);
   router.post('/api/ticket', authentication.check, Ticket.post);
   router.delete('/api/ticket/:ticket_id', authentication.check, Ticket.delete);
   router.put('/api/ticket/:ticket_id', authentication.check, Ticket.put);

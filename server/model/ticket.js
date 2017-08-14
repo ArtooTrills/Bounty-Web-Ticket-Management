@@ -41,4 +41,7 @@ module.exports = mongoose.model('Tickets', {
     type: Number,
     default: 2
   },
+  assignedTo: {
+    type: String
+  },
 });
