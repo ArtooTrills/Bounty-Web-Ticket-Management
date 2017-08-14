@@ -1,0 +1,45 @@
+doctype html
+// ASSIGN OUR ANGULAR MODULE
+html(ng-app='scotchTodo')
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+		meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no")
+		meta(name="mobile-web-app-capable", content="yes")
+		meta(name="theme-color", content="rgb(3,169,244)")
+		base(href="#{root}")
+		title= title
+
+		link(rel='stylesheet', href='css/lib/angular-material.min.css')
+		link(rel='stylesheet', href='css/lib/font-awesome.min.css')
+		link(rel='stylesheet', href='css/app/core.css')
+
+		block css
+
+		style.
+			html 					{ overflow-y:scroll; }
+			body 					{ padding-top:10px; }
+			#todo-list 				{ margin-bottom:30px; }
+			#todo-form 	 			{ margin-bottom:50px; }
+
+		body(ng-cloak="")
+			block body
+
+		script(type='text/javascript', src='/js/lib/angular.min.js')
+		script(type='text/javascript', src='/js/lib/angular-animate.min.js')
+		script(type='text/javascript', src='/js/lib/angular-aria.min.js')
+		script(type='text/javascript', src='/js/lib/angular-material.min.js')
+		script(type='text/javascript', src='/js/lib/angular-messages.min.js')
+		script(type='text/javascript', src='/js/app/core/core.js')
+		script(type='text/javascript', src='/js/app/core/angular-error-handling.js')
+		script(type='text/javascript', src='/js/app/core/chromefix.js')
+		script(type='text/javascript', src='/js/app/register/regController.js')
+		script(type='text/javascript', src='/js/app/register/regService.js')
+		script(type='text/javascript', src='/js/app/login/loginController.js')
+		script(type='text/javascript', src='/js/app/login/loginService.js')
+		script(type='text/javascript', src='/js/app/ticket/ticketController.js')
+		script(type='text/javascript', src='/js/app/ticket/ticketService.js')
+		script(type='text/javascript', src='/js/app/user/userController.js')
+		script(type='text/javascript', src='/js/app/user/userService.js')
+
+		block js

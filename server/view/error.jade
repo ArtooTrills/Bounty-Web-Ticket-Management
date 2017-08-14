@@ -1,0 +1,4 @@
+h1.animated.hinge(style='-webkit-animation-delay: 2s;')= error.title
+	h2 Error: #{error.status} - #[i= error.message]
+	if error.details
+		pre #{error.detail}
