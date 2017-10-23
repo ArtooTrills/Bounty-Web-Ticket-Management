@@ -1,0 +1,43 @@
+<div class="aboutus">
+<div class="container" style="background-image: url('../assets/images/back2.jpg');">
+  <div class="menu">
+
+
+      <a href="https://artoo.com/">
+        <div class="lg">
+          <img class="image" src="../assets/images/flames.png" alt="Logo" width="50" height="30">
+          <p style="color:white;"> ARTOO </p>
+        </div>
+      </a>
+
+
+      <div class="lgg">
+        {{#link-to 'index'}}
+          <h1 class="wiggle">
+            <em>TicketManagementSystem</em>
+          </h1>
+        {{/link-to}}
+      </div>
+
+
+        <div class="links circle">
+          <div>
+            {{#link-to 'ProductEngineers'}}
+              Product Engineers
+            {{/link-to}}
+          </div>
+          <div>
+            {{#link-to 'SupportEngineers'}}
+              Support Engineers
+            {{/link-to}}
+          </div>
+        </div>
+    
+  </div>
+
+                <div class="body">
+                    {{outlet}}
+                </div>
+
+</div>
+</div>

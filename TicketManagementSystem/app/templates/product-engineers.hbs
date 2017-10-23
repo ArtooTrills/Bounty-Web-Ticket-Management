@@ -1,0 +1,157 @@
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+   function deleteRow(row)
+{
+    var i=row.parentNode.parentNode.rowIndex;
+    var x=document.getElementById('POITable');
+    var len = x.rows.length;
+    switch(len)
+    {case 0 : break;
+     case 1 : break;
+     case 2 : break;
+     default: x.deleteRow(i); len--;
+    }   
+}
+
+
+function insRow()
+{
+    console.log( 'hi');
+    var x=document.getElementById('POITable');
+    var new_row = x.rows[1].cloneNode(true);
+    var len = x.rows.length;
+    new_row.cells[0].innerHTML = len;
+    
+    var inp1 = new_row.cells[1].getElementsByTagName('input')[0];
+    inp1.id += len;
+    inp1.value = '';
+    var inp2 = new_row.cells[2].getElementsByTagName('input')[0];
+    inp2.id += len;
+    inp2.value = '';
+    x.appendChild( new_row );
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jumbo">
+
+
+
+
+
+
+        <div class="right tms"></div>
+            <h2>Product Engineers</h2>
+            <p>
+                List of Product Engineers:
+            </p>
+        </div>
+  
+  
+
+
+
+
+        {{#each model as |peUnit|}}
+            {{pe-listing engineer=peUnit}}
+        {{/each}}
+  
+
+<br>
+
+
+
+
+<!--Ticket starts-->
+
+<div class="ticketmanagement">
+
+<h1 class="managetickets">
+    <em>Manage Your Tickets:</em>
+</h1>
+ 
+
+<div id="POItablediv">
+
+    <div class="addticketdiv">
+        <button id="addPOIbutton" value="Raise a new ticket" onclick="insRow()" class="addticketbutton">
+            <span data-title="Ticket Raised!">Raise a new ticket</span>
+        </button>
+        
+
+        <br/><br/>
+    </div>
+
+
+<!--Table starts-->
+    <table id="POITable" border="1" class="timecard">
+        <caption>Ticket Summary Table</caption>
+        <thead>
+        <tr>
+            <th id="tha">Sl. no.</th>
+            <th id="thb">Ticket title</th>
+            <th id="thc">Complaint description</th>
+            <th id="thd">Remove ticket</th>
+            <th id="the">Add Ticket</th>
+            <th id="thf">Select Employee</th>
+            <th id="thg">Select priority</th>
+            <th id="thh">Requires admin permission</th>
+        </tr>
+        </thead>
+        <tr>
+            <td>1</td>
+            <td><input size=25 type="text" id="latbox"/></td>
+            <td><input size=25 type="text" id="lngbox"/></td>
+            <td><input type="button" id="delPOIbutton" value="Remove" onclick="deleteRow(this)"/></td>
+            <td><input type="button" id="addmorePOIbutton" value="Add" onclick="insRow()"/></td>
+            <TD>
+                <SELECT name="Department">
+                    <OPTION value="AppDev">Alekh Raj</OPTION>
+                    <OPTION value="Logistics">Beka Doo</OPTION>
+                    <OPTION value="MobileDev">Chang Lee</OPTION>
+                </SELECT>
+            </TD>
+            <TD>
+                <SELECT name="Priority">
+                    <OPTION value="High">High</OPTION>
+                    <OPTION value="Medium">Medium</OPTION>
+                    <OPTION value="Low">Low</OPTION>
+                </SELECT>
+            </TD>
+            <TD><INPUT type="checkbox"/></TD>
+        </tr>
+    </table>
+
+<!--Table ends-->
+</div> 
+</div>
+<!--Ticket ends-->
+
+
+
+<br>
+<div class="pe">
+        {{#link-to 'SupportEngineers' class="button"}}
+            Support Engineers
+        {{/link-to}}
+</div>
