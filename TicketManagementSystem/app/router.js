@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('ProductEngineers');
   this.route('SupportEngineers');
   this.route('Engineers');
+  this.route('tickets');
 });
 
 export default Router;

@@ -88,86 +88,14 @@ function insRow()
 
 <br>
 
-
-  
-
-
-
-
-<!--Ticket starts-->
-
-<div class="ticketmanagement">
-
-<h1 class="managetickets">
-    <em>Manage Your Tickets:</em>
-</h1>
- 
-
-<div id="POItablediv">
-
-    <div class="addticketdiv">
-        <button id="addPOIbutton" value="Raise a new ticket" onclick="insRow()" class="addticketbutton">
-            <span data-title="Ticket Raised!">Raise a new ticket</span>
-        </button>
-        
-
-        <br/><br/>
-    </div>
-
-
- 
-<!--Table starts-->
-    <table id="POITable" border="1" class="timecard">
-        <caption>Ticket Summary Table</caption>
-        <thead>
-        <tr>
-            <th id="tha">Sl. no.</th>
-            <th id="thb">Ticket title</th>
-            <th id="thc">Complaint description</th>
-            <th id="thd">Remove ticket</th>
-            <th id="the">Add Ticket</th>
-            <th id="thf">Select Employee</th>
-            <th id="thg">Select priority</th>
-            <th id="thh">Requires admin permission</th>
-        </tr>
-        </thead>
-        <tr>
-            <td>1</td>
-            <td><input size=25 type="text" id="latbox"/></td>
-            <td><input size=25 type="text" id="lngbox"/></td>
-            <td><input type="button" id="delPOIbutton" value="Remove" onclick="deleteRow(this)"/></td>
-            <td><input type="button" id="addmorePOIbutton" value="Add" onclick="insRow()"/></td>
-            <TD>
-                <SELECT name="Department">
-                    <OPTION value="AppDev">Pappachi Mol</OPTION>
-                    <OPTION value="Logistics">Kemal Ataturk</OPTION>
-                    <OPTION value="MobileDev">Vijay Sen</OPTION>
-                </SELECT>
-            </TD>
-            <TD>
-                <SELECT name="Priority">
-                    <OPTION value="High">High</OPTION>
-                    <OPTION value="Medium">Medium</OPTION>
-                    <OPTION value="Low">Low</OPTION>
-                </SELECT>
-            </TD>
-            <TD><INPUT type="checkbox"/></TD>
-        </tr>
-    </table>
-<!--Table ends-->
-</div> 
-</div>
-<!--Ticket ends-->
- 
-
-
-
-
-
-
 <br>
-<div class="pe">
+<div class="ee">
         {{#link-to 'ProductEngineers' class="button"}}
             Product Engineers
+        {{/link-to}}
+</div>
+<div class="ee">
+        {{#link-to 'tickets' class="button"}}
+            Ticket Management
         {{/link-to}}
 </div>
