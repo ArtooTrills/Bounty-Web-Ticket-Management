@@ -1,0 +1,92 @@
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+   function deleteRow(row)
+{
+    var i=row.parentNode.parentNode.rowIndex;
+    var x=document.getElementById('POITable');
+    var len = x.rows.length;
+    switch(len)
+    {case 0 : break;
+     case 1 : break;
+     case 2 : break;
+     default: x.deleteRow(i); len--;
+    }   
+}
+
+
+function insRow()
+{
+    console.log( 'hi');
+    var x=document.getElementById('POITable');
+    var new_row = x.rows[1].cloneNode(true);
+    var len = x.rows.length;
+    new_row.cells[0].innerHTML = len;
+    
+    var inp1 = new_row.cells[1].getElementsByTagName('input')[0];
+    inp1.id += len;
+    inp1.value = '';
+    var inp2 = new_row.cells[2].getElementsByTagName('input')[0];
+    inp2.id += len;
+    inp2.value = '';
+    x.appendChild( new_row );
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jumbo">
+
+
+
+
+
+
+        <div class="right tms"></div>
+            <h2>Product Engineers</h2>
+            <p>
+                List of Product Engineers:
+            </p>
+        </div>
+  
+  
+
+
+
+
+        {{#each model as |peUnit|}}
+            {{pe-listing engineer=peUnit}}
+        {{/each}}
+  
+
+<br>
+
+<br>
+<div class="ee">
+        {{#link-to 'SupportEngineers' class="button"}}
+            Support Engineers
+        {{/link-to}}
+</div>
+<div class="ee">
+        {{#link-to 'tickets' class="button"}}
+            Ticket Management
+        {{/link-to}}
+</div>
